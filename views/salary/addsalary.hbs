@@ -1,0 +1,87 @@
+
+
+<style>
+
+
+</style>
+
+
+
+
+
+
+
+{{!-- make a form to post a salary and redirect to the salary page  --}}
+
+
+
+
+
+
+
+
+<div class="container">
+<form action="/addsalary" method="POST">
+    <div class="form-group">
+        <label for="position" class="required">position</label>
+        <input type="text" class="form-control" id="position" placeholder="Position" name="position" value="{{salary.position}}">
+        <div class="text-danger">
+            {{salary.errors.position}}
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="company"  >company</label>
+        <input type="text" class="form-control" id="company" placeholder="company" name="company" value="{{salary.company}}">
+        <div class="text-danger">
+            {{salary.errors.company}}
+        </div>
+    </div>
+        <div class="form-group">
+        <label for="salary" class="required">salary</label>
+        <input type="number" class="form-control" id="salary" placeholder="salary" name="salary" value="{{salary.salary}}">
+                <div class="text-danger">
+             {{salary.errors.salary}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="expiernce" class="required">  expiernce</label>
+        <input type="text" class="form-control" name="expiernce" placeholder="expiernce" value="{{salary.expiernce}}">
+                <div class="text-danger">
+            {{salary.errors.expiernce}}
+        </div>
+    </div>
+    
+        <div class="form-group"> 
+        <label for="education" class="required">education</label>
+        <input type="text" class="form-control" name="education" placeholder="education" value="{{salary.education}}">
+                <div class="text-danger">
+            {{salary.errors.education}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="age" class="required">age</label>
+        <input type="number" class="form-control" id="age" placeholder="age" name="age" value="{{salary.age}}">
+        <div class="text-danger">
+            {{salary.errors.age}}
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="gender" class="required">gender</label>
+        <input type="text" class="form-control" id="gender" placeholder="gender" name="gender" value="{{salary.gender}}">
+        <div class="text-danger">
+            {{salary.errors.gender}}
+        </div>
+    </div>
+     <div class="form-group">
+        <label for="notes">notes</label>
+        <input type="text" class="form-control" id="notes" placeholder="notes" name="notes" value="{{salary.notes}}">
+        <div class="text-danger">
+            {{salary.errors.notes}}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button type="submit" class="btn btn-info">Submit</button>
+    </div>
+</form>
+</div>
