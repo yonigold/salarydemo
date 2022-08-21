@@ -1,87 +1,132 @@
-
-
 <style>
-
+  header { background: #37383d; height: 10rem; width: 100%; padding: 20px;
+  color: #fff; text-align: center; display: flex; flex-direction: column;
+  text-align: center; position: relative; } .heading span { color: #5ec576;
+  font-size: 1.2em; } .lead { font-size: 1.5em; font-family: "Poppins",
+  sans-serif; } footer { width: 100%; } *, *::before, *::after { padding: 0;
+  margin: 0; box-sizing: border-box; } body { height: 100%; display: grid;
+  place-items: center; font-family: sans-serif; background-color: #37383d;
+  color: rgb(225,225,255); } .container { display: flex; flex-direction: column;
+  padding: 1rem 5rem; border-radius: 2em; background-color: #37383d; width:
+  40rem; } label span{ display: inline-block; font-size: 1.25rem;
+  letter-spacing: 2px; position: relative; bottom: 1rem; transition: transform
+  200ms ease-in-out; } input, #gender, select { position: relative;
+  margin-bottom: 1rem; padding: 0.3rem 0; background-color: transparent;
+  outline: none; border: unset; border-bottom: 1.2px solid white; font-size:
+  1.25rem; letter-spacing: 1.5px; color: white; z-index: 1; } button { display:
+  inline-block; margin: 1rem 0; padding: 0.75rem; cursor: pointer; outline:
+  none; border: none; border-radius: 0.25em; font-size: 1rem; letter-spacing:
+  1.5px; font-weight: 500; transition: all 100ms ease-in-out; background-color:
+  rgb(225,225,255); } button:hover { background-color: rgb(235,235,235); } a {
+  color: rgb(235, 235, 235); } a:hover { color: rgb(215, 215, 215); } p {
+  text-align: center; } input:focus, input:valid, #gender:focus, #gender:valid {
+  border-bottom: 2px solid white; } input:focus + label span, input:valid +
+  label span, #gender:focus + label span, #gender:valid + label span { color:
+  white; transform: translateY(-2rem); } option { color: black; }
+  input:placeholder-shown { font-size: 18px; } .homePage { display: flex;
+  flex-direction: column; align-items: center; justify-content: center; height:
+  100%; text-decoration: none; } @media (max-width: 768px) { .container { width:
+  100%; } }
 
 </style>
 
+<header>
+  <h1 class="display-1 text-center heading"><span>Re</span>fresh !</h1>
+</header>
+<form action="addsalary" method="POST">
+  <div class="container">
 
-
-
-
-
-
-{{!-- make a form to post a salary and redirect to the salary page  --}}
-
-
-
-
-
-
-
-
-<div class="container">
-<form action="/addsalary" method="POST">
-    <div class="form-group">
-        <label for="position" class="required">position</label>
-        <input type="text" class="form-control" id="position" placeholder="Position" name="position" value="{{salary.position}}">
-        <div class="text-danger">
-            {{salary.errors.position}}
-        </div>
+    <label for="position" class="required">position</label>
+    <input
+      type="text"
+      id="position"
+      placeholder="Job title: 'Python developer, UI, etc'"
+      name="position"
+      value="{{salary.position}}"
+    />
+    <div class="text-danger">
+      {{salary.positionError}}
     </div>
-        <div class="form-group">
-        <label for="company"  >company</label>
-        <input type="text" class="form-control" id="company" placeholder="company" name="company" value="{{salary.company}}">
-        <div class="text-danger">
-            {{salary.errors.company}}
-        </div>
+
+    <label for="company">company</label>
+    <input
+      type="text"
+      id="company"
+      placeholder=""
+      name="company"
+      value="{{salary.company}}"
+    />
+
+    <label for="salary">Salary</label>
+    <input
+      type="number"
+      id="salary"
+      placeholder=""
+      name="salary"
+      value="{{salary.salary}}"
+    />
+    <div class="text-danger">
+      {{salary.salaryError}}
     </div>
-        <div class="form-group">
-        <label for="salary" class="required">salary</label>
-        <input type="number" class="form-control" id="salary" placeholder="salary" name="salary" value="{{salary.salary}}">
-                <div class="text-danger">
-             {{salary.errors.salary}}
-        </div>
+
+    <label for="expiernce" class="required">expiernce</label>
+    <input
+      type="text"
+      name="expiernce"
+      placeholder="Months/Years"
+      value="{{salary.expiernce}}"
+    />
+    <div class="text-danger">
+      {{salary.expiernceError}}
     </div>
-    <div class="form-group">
-        <label for="expiernce" class="required">  expiernce</label>
-        <input type="text" class="form-control" name="expiernce" placeholder="expiernce" value="{{salary.expiernce}}">
-                <div class="text-danger">
-            {{salary.errors.expiernce}}
-        </div>
+    <label for="education" class="required">education</label>
+    <input
+      type="text"
+      name="education"
+      placeholder="Studies Field and Degree type"
+      value="{{salary.education}}"
+    />
+    <div class="text-danger">
+      {{salary.educationError}}
     </div>
-    
-        <div class="form-group"> 
-        <label for="education" class="required">education</label>
-        <input type="text" class="form-control" name="education" placeholder="education" value="{{salary.education}}">
-                <div class="text-danger">
-            {{salary.errors.education}}
-        </div>
+    <label for="age" class="required">age</label>
+    <input type="number" id="age" name="age" value="{{salary.age}}" />
+    <div class="text-danger">
+      {{salary.ageError}}
     </div>
-    <div class="form-group">
-        <label for="age" class="required">age</label>
-        <input type="number" class="form-control" id="age" placeholder="age" name="age" value="{{salary.age}}">
-        <div class="text-danger">
-            {{salary.errors.age}}
-        </div>
+    <label for="gender" class="required">gender</label>
+    <select name="gender" id="gender">
+      <option value="" disabled selected>Select your option</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+      <option value="Other">Other</option>
+    </select>
+    <div class="text-danger">
+      {{salary.genderError}}
     </div>
-    <div class="form-group">
-        <label for="gender" class="required">gender</label>
-        <input type="text" class="form-control" id="gender" placeholder="gender" name="gender" value="{{salary.gender}}">
-        <div class="text-danger">
-            {{salary.errors.gender}}
-        </div>
-    </div>
-     <div class="form-group">
-        <label for="notes">notes</label>
-        <input type="text" class="form-control" id="notes" placeholder="notes" name="notes" value="{{salary.notes}}">
-        <div class="text-danger">
-            {{salary.errors.notes}}
-        </div>
-    </div>
-    
-    <div class="form-group">
-        <button type="submit" class="btn btn-info">Submit</button>
-    </div>
+    <label for="notes">notes</label>
+    <input
+      type="text"
+      id="notes"
+      placeholder="Another Information: benefits, Options, Cibus, etc"
+      name="notes"
+      value="{{salary.notes}}"
+    />
+    {{!-- <div class="text-danger">
+            {{salary.notesError}}
+        </div> --}}
+
+    <button type="submit">Submit</button>
+    <a href="/salary" class="homePage">Home</a>
+
+  </div>
 </form>
-</div>
+
+<footer class="bg-dark text-center text-white">
+  <div class="bg-dark container p-4 pb-0">
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2022 Copyright:
+      <a class="text-white" href="#">Rrefresh</a>
+    </div>
+  </div>
+</footer>

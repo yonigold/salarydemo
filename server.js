@@ -4,10 +4,7 @@ const path = require("path");
 const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
 const salaryController = require("./controllers/salaryController");
-
-
 
 
 const app = express();
@@ -33,12 +30,8 @@ app.engine(
 );
 app.set("view engine", "hbs");
 
-
-
-
-
 app.listen(3001, () => {
-  console.log("Server is running on port 3000");
+  console.log("Server is running on port 300");
 });
 
 app.use("/salary", salaryController);
