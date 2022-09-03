@@ -102,25 +102,25 @@ const transporter = nodemailer.createTransport({
   }
 
   // likes and dislikes
-  function like(req, res) {
-    Salary.findByIdAndUpdate(req.params.id, { $inc: { likes: 1 } }, (err) => {
-      if (!err) {
-        res.redirect("/salary");
-      } else {
-        console.log("Error in updating likes :" + JSON.stringify(err, undefined, 2));
-      }
-    }).exec();
-  }
+  // function like(req, res) {
+  //   Salary.findByIdAndUpdate(req.params.id, { $inc: { likes: 1 } }, (err) => {
+  //     if (!err) {
+  //       res.redirect("/salary");
+  //     } else {
+  //       console.log("Error in updating likes :" + JSON.stringify(err, undefined, 2));
+  //     }
+  //   }).exec();
+  // }
 
-  function dislike(req, res) {
-    Salary.findByIdAndUpdate(req.params.id, { $inc: { dislikes: 1 } }, (err) => {
-      if (!err) {
-        res.redirect("/salary");
-      } else {
-        console.log("Error in updating dislikes :" + JSON.stringify(err, undefined, 2));
-      }
-    }).exec();
-  }
+  // function dislike(req, res) {
+  //   Salary.findByIdAndUpdate(req.params.id, { $inc: { dislikes: 1 } }, (err) => {
+  //     if (!err) {
+  //       res.redirect("/salary");
+  //     } else {
+  //       console.log("Error in updating dislikes :" + JSON.stringify(err, undefined, 2));
+  //     }
+  //   }).exec();
+  // }
 
 
 

@@ -29,7 +29,7 @@ router.get("/", (req, res) => {
 
 
 router.post("/", (req, res) => {
-  let search = req.body.search;
+  let search = req.body.searchQueryInput;
   Salary.find(
     {
       isApproved: true,
@@ -51,7 +51,9 @@ router.post("/", (req, res) => {
           "Error in Retriving Salaries :" + JSON.stringify(err, undefined, 2)
         );
       }
+      search = "";
     }
+    
   ).lean();
 });
 
