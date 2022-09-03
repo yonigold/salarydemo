@@ -5,6 +5,9 @@ const exphbs = require("express-handlebars");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const salaryController = require("./controllers/salaryController");
+const dotenv = require("dotenv");
+dotenv.config();
+const port = process.env.PORT || 3001;
 
 const app = express();
 
@@ -39,8 +42,8 @@ app.engine(
 );
 app.set("view engine", "hbs");
 
-app.listen(3001, () => {
-  console.log("Server is running on port 300");
+app.listen(port, () => {
+  console.log("Server is running on port: " + port);
 });
 
 app.use("/salary", salaryController);
