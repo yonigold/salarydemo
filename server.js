@@ -6,27 +6,36 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const salaryController = require("./controllers/salaryController");
 
-
 const app = express();
 
-
 app.use(
-    bodyParser.urlencoded({
-      extended: true,}));
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(cors());
 
 app.use(bodyParser.json());
 
-
 app.set("views", path.join(__dirname, "views"));
 app.engine(
-    "hbs",
-    exphbs.engine({
-        extname: "hbs",
-        defaultLayout: "mainlayout",
-        layoutsDir: path.join(__dirname, "views/layouts"),
-    })
+  "hbs",
+  exphbs.engine({
+    extname: "hbs",
+    defaultLayout: "mainlayout",
+    layoutsDir: path.join(__dirname, "views/layouts"),
+    helpers: {
+      // each button click will increase the count by 1 
+      inc: function (value) {
+        return value + 1;
+      },
+      // each button click will decrease the count by 1
+      dec: function (value) {
+        return value - 1;
+      }
+    },
+  })
 );
 app.set("view engine", "hbs");
 
@@ -35,4 +44,5 @@ app.listen(3001, () => {
 });
 
 app.use("/salary", salaryController);
-app.use("/", express.static(path.join(__dirname, "public")));
+// connect to public css folder
+app.use(express.static(path.join(__dirname, "public")));

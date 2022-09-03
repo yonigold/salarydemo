@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
+const dbUrl = process.env.DB_URL;
 
-mongoose.connect('mongodb://localhost:27017/SalaryDB', {useNewUrlParser: true}, (err) => {
-    if (!err) {console.log('mongoDB connection is working')}
-     else {
-        {console.log('error in DB connention' + err)}
+// mongodb://localhost:27017/SalaryDB
+console.log(process.env.DB_URL);
+mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+    if (!err) {
+        console.log('MongoDB Connection Succeeded.');
+    } else {
+        console.log('Error in DB connection : ' + err);
     }
 });
 

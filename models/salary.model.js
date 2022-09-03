@@ -1,20 +1,19 @@
 const mongoose = require("mongoose");
-const joi = require("joi");
+
+
 
 let salarySchema = new mongoose.Schema({
   position: {
     type: String,
     required: "this field is required",
-    // minlength: [3, "this field must be at least 3 characters long"],
-    // maxlength: [50, "this field must be less than 50 characters long"],
+
 
   },
 
   
   company: {
     type: String,
-    // minlength: [2, "this field must be at least 2 characters long"],
-    // maxlength: [50, "this field must be less than 50 characters long"],
+
 
   },
   salary: {
@@ -27,18 +26,17 @@ let salarySchema = new mongoose.Schema({
     type: String,
     required: "this field is required",
 
+
   },
   education: {
     type: String,
     required: "this field is required",
-    // minlength: [2, "this field must be at least 2 characters long"],
-    // maxlength: [30, "this field must be less than 50 characters long"],
+
   },
   age: {
     type: Number,
     required: "this field is required",
-    // minlength: [2, "this field must be at least 2 characters long"],
-    // maxlength: [30, "this field must be less than 50 characters long"],
+
   },
   gender: {
     type: String,
@@ -46,19 +44,42 @@ let salarySchema = new mongoose.Schema({
   },
   notes: {
     type: String,
-    // minlength: [2, "this field must be at least 2 characters long"],
-    // maxlength: [50, "this field must be less than 50 characters long"],
+
   },
 
   isApproved: {
     type: Boolean,
     default: false,
   },
+
+  isLiked: {
+    type: Boolean,
+    default: false,
+    count: {
+      type: Number,
+      default: 0,
+    },
+  },
+  isDisliked: {
+    type: Boolean,
+    default: false,
+    count: {
+      type: Number,
+      default: 0,
+    },
+  },
+
+
+
+
+
 });
 
+const Salary = mongoose.model("Salary", salarySchema);
+module.exports = Salary;
 
-
-mongoose.model("Salary", salarySchema);
+// module.exports = mongoose.model("Salary", salarySchema);
+// mongoose.model("Salary", salarySchema);
 
 
 
