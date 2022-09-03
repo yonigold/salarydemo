@@ -10,6 +10,9 @@ const { apiLimiter } = require("../services/service");
 const { insertSalary } = require("../services/service");
 const { handlevalidationErrors } = require("../services/service");
 
+
+
+
 router.get("/", (req, res) => {
   Salary.find({ isApproved: true }, (err, docs) => {
     if (!err) {

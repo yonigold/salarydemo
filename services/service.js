@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 const rateLimit = require("express-rate-limit");
-const dotenv = require("dotenv");
-dotenv.config();
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const mongoose = require("mongoose");
 const router = require("../controllers/salaryController");
 const Salary = mongoose.model("Salary");
