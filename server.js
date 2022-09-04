@@ -26,17 +26,9 @@ app.engine(
     extname: "hbs",
     defaultLayout: "mainlayout",
     layoutsDir: path.join(__dirname, "views/layouts"),
-    helpers: {
-      // each button click will increase the count by 1 
-      inc: function (value) {
-        return value + 1;
-      },
-      // each button click will decrease the count by 1
-      dec: function (value) {
-        return value - 1;
-      }
+    
     },
-  })
+  )
 );
 app.set("view engine", "hbs");
 

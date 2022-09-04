@@ -50,7 +50,7 @@ const transporter = nodemailer.createTransport({
     const salaryForm = new Salary({
       position: position,
       company: company,
-      salary: salary,
+      salary: salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),  
       expiernce: expiernce,
       education: education,
       age: age,
