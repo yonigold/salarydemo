@@ -39,6 +39,7 @@ router.post("/", (req, res) => {
         { salary: { $regex: search } },
         { expiernce: { $regex: search, $options: "i" } },
         { education: { $regex: search, $options: "i" } },
+
       ],
     },
     (err, docs) => {
@@ -73,6 +74,10 @@ router.post("/addsalary", apiLimiter, (req, res) => {
 router.get("/success", (req, res) => {
   res.render("salary/success");
 });
+
+
+
+
 
 
 

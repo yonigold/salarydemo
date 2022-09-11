@@ -52,27 +52,6 @@ let salarySchema = new mongoose.Schema({
     default: false,
   },
 
-  isLiked: {
-    type: Boolean,
-    default: false,
-    count: {
-      type: Number,
-      default: 0,
-    },
-  },
-  isDisliked: {
-    type: Boolean,
-    default: false,
-    count: {
-      type: Number,
-      default: 0,
-    },
-  },
-
-
-
-
-
 });
 
 const Salary = mongoose.model("Salary", salarySchema);
