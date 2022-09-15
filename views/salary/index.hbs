@@ -21,7 +21,7 @@
 </style>
 <body>
        <header>
-      <a href="salary" class="refresh-link"> <h1 class="display-1 text-center heading"><span>Re</span>fresh !</h1></a>
+      <a href="salary" class="refresh-link"> <h1 class="display-1 text-center heading"><span>Re</span>fresh!</h1></a>
       <a href="/salary/addsalary"><button class="homeBtn" type="button">Add salary</button></a>
       <p class="lead">
         Refresh ! is a social network for anonymous salary sharing <br />
@@ -88,7 +88,7 @@
               <p>Expiernce: {{this.expiernce}}</p>
               <p>Education: {{this.education}}</p>
               <p>Age: {{this.age}}</p>
-              <p>Gender : {{this.gender}}</p>
+              <p>Gender: {{this.gender}}</p>
               <p>
                 Additional information: {{this.notes}}
               </p>
@@ -103,14 +103,20 @@
                 <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
               </button> --}}
             
-          
+
           
         </div>
-      
+  
       </div>
-     {{/each}}   
-    </main>
 
+      
+     {{/each}}  
+     
+     
+    </main>
+              {{#if message}}
+      <p class="lead text-center">{{text}}</p>
+        {{/if}}
 
     <footer class="bg-dark text-center text-white">
       <!-- Grid container -->

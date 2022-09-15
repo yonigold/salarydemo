@@ -17,12 +17,13 @@ router.get("/", (req, res) => {
   Salary.find({ isApproved: true }, (err, docs) => {
     if (!err) {
       res.render("salary/index", {
-        list: docs,
+        list: docs.sort((a, b) => b.createdAt - a.createdAt),
+      
+
+        
       });
     } else {
-      console.log(
-        "Error in Retriving Salaries :" + JSON.stringify(err, undefined, 2)
-      );
+      res.status(400).json("Error in retrieving salary list :" + err);
     }
   }).lean();
 });
@@ -42,15 +43,24 @@ router.post("/", (req, res) => {
 
       ],
     },
+
     (err, docs) => {
-      if (!err) {
+      if (!err && docs.length > 0) {
+        
         res.render("salary/index", {
           list: docs,
         });
       } else {
-        console.log(
-          "Error in Retriving Salaries :" + JSON.stringify(err, undefined, 2)
-        );
+        // if there is no results for the search query show h4 with the message
+
+        res.render("salary/index", {
+          list: docs,
+          message: true,
+          text: "No results for your search",
+        });
+    
+        
+        
       }
       search = "";
     }

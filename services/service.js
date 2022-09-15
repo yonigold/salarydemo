@@ -48,17 +48,17 @@ const transporter = nodemailer.createTransport({
   function insertSalary(req, res) {
     const {position, company, salary, expiernce, education, age, gender, notes} = req.body;
     const salaryForm = new Salary({
-      position: position,
-      company: company,
+      position: position, 
+      company: company || "NA",
       salary: salary.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "₪",
-      expiernce: expiernce,
-      education: education,
-      age: age,
+      expiernce: expiernce || "NA",
+      education: education || "NA",
+      age: age || "NA",
       gender: gender,
-      notes: notes,
+      notes: notes || "NA",
     });
   
-  
+ 
     salaryForm.save((err, doc) => {
       if (!err) {
         res.redirect("/salary/success");

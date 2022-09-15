@@ -1,3 +1,4 @@
 .env
 checklist
 node_modules
+config.env
